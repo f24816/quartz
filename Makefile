@@ -17,4 +17,7 @@ update-force: ## Forcefully pull all changes and don't ask to patch
 	git checkout upstream/hugo -- layouts .github Makefile assets/js assets/styles/base.scss assets/styles/darkmode.scss config.toml data
 
 serve: ## Serve Quartz locally
-	hugo-obsidian -input=content -output=assets/indices -index -root=. && hugo server --enableGitInfo --minify
+	hugo-obsidian -input=content -output=assets/indices -index -root=. && start firefox http://localhost:1313/ && hugo server --enableGitInfo --minify
+
+build:
+	hugo-obsidian -input=content -output=assets/indices -index -root=. && hugo --minify
